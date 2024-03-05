@@ -1,0 +1,80 @@
+\documentclass[aspectratio=169]{beamer} % export in 16/9 ratio
+
+%% Packages
+\usepackage{appendixnumberbeamer}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+%% Tweak Metropolis theme
+\usetheme{metropolis}
+\usefonttheme[onlymath]{serif} % use serif font for math
+\metroset{progressbar=frametitle} % progress bar at the top
+\metroset{titleformat=smallcaps} % use small caps in titles
+\metroset{numbering=fraction} % show page number
+\metroset{block=fill} % use gray background in blocks
+\definecolor{mPink}{HTML}{e91e63} % define custom accent color
+\setbeamercolor{alerted text}{fg=mPink} % change accent color
+\setbeamertemplate{section in toc}[sections numbered] % number sections in table of contents
+% wider progress bar
+\makeatletter
+\setlength{\metropolis@titleseparator@linewidth}{1pt}
+\setlength{\metropolis@progressonsectionpage@linewidth}{1.5pt}
+\setlength{\metropolis@progressinheadfoot@linewidth}{2.5pt}
+\makeatother
+
+\title{Your title}
+\subtitle{Optional subtitle}
+\author{\underline{First Author}, Second Author}
+\date{\today}
+\institute{Affiliations}
+
+\titlegraphic{
+\begin{tikzpicture}[overlay, remember picture]
+\node[above left=0.9cm and 0.9cm of current page.south east] {
+  % put your logos here
+  % \includegraphics[height=1cm]{path/to/logo}
+};
+\end{tikzpicture}
+}
+
+\begin{document}
+
+{\metroset{background=dark}\maketitle}
+
+\begin{frame}{A slide}
+  With two columns
+
+  \begin{columns}
+    \column{0.5\textwidth}
+    \begin{itemize}
+      \item some
+      \item items
+    \end{itemize}
+
+    \column{0.5\textwidth}
+    \begin{block}{A block}
+      with \alert{alerted} content
+    \end{block}
+  \end{columns}
+\end{frame}
+
+{\metroset{background=dark}\section{New section}}
+
+\begin{frame}{Another slide}
+  \centering
+  with
+  \pause
+  pauses
+\end{frame}
+
+\appendix
+
+\begin{frame}[standout]
+  Appendix
+\end{frame}
+
+\begin{frame}{Unnumbered slide}
+  \dots
+\end{frame}
+
+\end{document}
